@@ -155,6 +155,8 @@ public class Java8Features {
 
 		skipFirst3Elements.forEach(e -> System.out.println(e.getName()));
 
+		System.out.println("Checking PR");
+
 
 	}
 
