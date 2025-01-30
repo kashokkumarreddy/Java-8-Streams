@@ -20,7 +20,16 @@ public class Java8Features {
 	public static void main(String[] args) {
 		SpringApplication.run(Java8Features.class, args);
 
-		System.out.println("Hello");
+
+
+
+		// Java 8 Interview Coding interview questions.
+        Java8CodingQuestions.java8CodingQuestions();
+
+
+
+
+//		System.out.println("Hello");
 		List<Employee> employees = EmployeeDataBase.getAllEmployees();
 		// forEach
 	//	employees.forEach(e -> System.out.println(e.getName() + " : salary : "+e.getSalary()));
@@ -28,9 +37,9 @@ public class Java8Features {
 	//	employees.stream().forEach(System.out::println);
 
 //		 filter
-//		List<Employee> developmentEmp = employees.stream()
-//				.filter(e -> e.getDept().equals("Development") && e.getSalary() == 95000)
-//				.collect(Collectors.toList());
+		List<Employee> developmentEmp = employees.stream()
+				.filter(e -> e.getDept().equals("Development") && e.getSalary() == 95000)
+				.collect(Collectors.toList());
 		Map<Integer, String> developmentEmp1 = 	employees.stream()
 				.filter(e -> e.getDept().equals("Development") && e.getSalary() > 80000)
 				.collect(Collectors.toMap(Employee::getId,Employee::getDept));
@@ -42,7 +51,7 @@ public class Java8Features {
 				.map(Employee::getDept)
 				.distinct()
 				.collect(Collectors.toList());
-		System.out.println(empDept);
+//		System.out.println(empDept);
 
 		List<Stream<String>> empProjectNames =		employees.stream()
 					.map(e -> e.getProjects()
@@ -115,7 +124,7 @@ public class Java8Features {
 //			System.out.println(findFirstEmployee.get());
 //		}
 //		findFirstEmployee.ifPresent(e -> System.out.println(e.getName()));
-		System.out.println(findFirstEmployee.getName());
+//		System.out.println(findFirstEmployee.getName());
 
 
 		// findAny() - To check whether the record is coming or not.
@@ -125,7 +134,7 @@ public class Java8Features {
 				.findAny()
 				.orElseThrow(() -> new IllegalArgumentException("Employee Not found"));
 
-	System.out.println("find any "+findAnyEmployee);
+//	System.out.println("find any "+findAnyEmployee);
 
 	// anyMatch(predicate), allMatch(predicate), noneMatch(predicate)
 
@@ -153,9 +162,9 @@ public class Java8Features {
 		List<Employee> skipFirst3Elements = employees.stream().skip(3)
 				.collect(Collectors.toList());
 
-		skipFirst3Elements.forEach(e -> System.out.println(e.getName()));
+//		skipFirst3Elements.forEach(e -> System.out.println(e.getName()));
 
-		System.out.println("Checking PR");
+//		System.out.println("Checking PR");
 
 
 	}
